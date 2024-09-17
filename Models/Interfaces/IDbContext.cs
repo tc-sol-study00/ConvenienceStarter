@@ -1,5 +1,8 @@
 ﻿using Convenience.Data;
+using Convenience.Models.Interfaces;
+using Convenience.Models.Properties;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 
 namespace Convenience.Models.Interfaces {
     public interface IDbContext {
@@ -16,7 +19,15 @@ namespace Convenience.Models.Interfaces {
             var contextOptions = new DbContextOptionsBuilder<ConvenienceContext>()
                 .UseNpgsql(configuration[KeyWordInAppConfig])
                 .Options;
-            return (new ConvenienceContext(contextOptions));
+            return new ConvenienceContext(contextOptions);
         }
     }
 }
+
+/*使い方
+（１）本インターフェースの実装
+（２）以下のコンストラクター追加（例）
+public Chumon() {
+    _context = IDbContext.DbOpen();
+}
+*/
