@@ -27,7 +27,19 @@ namespace Convenience.Models.Interfaces {
 /*使い方
 （１）本インターフェースの実装
 （２）以下のコンストラクター追加（例）
-public Chumon() {
-    _context = IDbContext.DbOpen();
-}
+
+        /// <summary>
+        /// コンストラクタ（ＡＳＰ用）
+        /// </summary>
+        /// <param name="context">DBコンテキスト</param>
+        public Chumon(ConvenienceContext context) {
+            _context = context;
+        }
+
+        /// <summary>
+        /// 注文クラスデバッグ用
+        /// </summary>
+        public Chumon() {
+            _context = IDbContext.DbOpen();
+        }
 */
