@@ -1,5 +1,5 @@
 ﻿using Convenience.Data;
-using ConvenienceStarter.Models.DataModels;
+using Convenience.Models.DataModels;
 
 namespace Convenience.Models.Interfaces {
     /// <summary>

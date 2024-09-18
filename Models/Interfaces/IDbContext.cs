@@ -2,6 +2,7 @@
 using Convenience.Models.Interfaces;
 using Convenience.Models.Properties;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Data.Entity;
 
 namespace Convenience.Models.Interfaces {
