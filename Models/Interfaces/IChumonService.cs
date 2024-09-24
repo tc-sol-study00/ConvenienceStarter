@@ -10,7 +10,7 @@ namespace Convenience.Models.Interfaces {
         /// <summary>
         /// 注文クラス用オブジェクト変数
         /// </summary>
-        public IChumon chumon { get; set; }
+        public IChumon chumon { get; }
 
         /// <summary>
         /// 注文キービューモデル初期設定
