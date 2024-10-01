@@ -2,7 +2,7 @@
 using Convenience.Models.Interfaces;
 using Convenience.Models.Properties;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
+using Microsoft.Extensions.Configuration;
 
 namespace Convenience.Models.Interfaces {
     public interface IDbContext {
