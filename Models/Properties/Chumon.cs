@@ -5,7 +5,8 @@ using Convenience.Models.DataModels;
 using Convenience.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Convenience.Models.Properties {
+namespace Convenience.Models.Properties
+{
 
     /// <summary>
     /// * 注文クラス
