@@ -12,8 +12,4 @@
     <None Remove="Properties\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Convenience\Convenience.csproj" />
-  </ItemGroup>
-
 </Project>
