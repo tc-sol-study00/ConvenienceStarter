@@ -4,7 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Convenience.Models.DataModels {
-
+    /// <summary>
+    /// 商品マスタDTO
+    /// </summary>
+    /// <Remarks>
+    /// 主キー：商品コード
+    /// </Remarks>
     [Table("shohin_master")]
     public class ShohinMaster {
 
@@ -33,8 +38,8 @@ namespace Convenience.Models.DataModels {
         [Precision(15, 2)]
         public decimal ShohiZeiritsuGaishoku { get; set; }
 
-        public virtual ICollection<ShiireMaster>? ShiireMasters { get; set; }
+        public virtual IList<ShiireMaster>? ShiireMasters { get; set; }
 
-        public virtual TentoZaiko? TentoZaikos { get; set; }
+        public virtual TentoZaiko? TentoZaiko { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using static Convenience.Models.ViewModels.Zaiko.ZaikoViewModel;
 
 namespace Convenience.Models.Interfaces {
     /// <summary>
-    /// 注文実績明細検索＆倉庫在庫（遅延実行）
+    /// 在庫クラスインターフェース
     /// </summary>
     public interface IZaiko {
         /// <summary>
@@ -17,7 +17,6 @@ namespace Convenience.Models.Interfaces {
         /// <param name="inSearchKey">検索キー</param>
         /// <returns>倉庫在庫　＆　注文実績明細(変数:SoKoZaikoQueryable) Where指示付き　ISoKoZaikoQueryable型にして遅延実行化</returns>
         public IQueryable<ZaikoListLine> CreateSokoZaikoList(string searchKey);
-
         /// <summary>
         ///  機能：注文実績明細検索＆倉庫在庫（遅延実行）＋Where内容の状態から、ソート順の追加セットを行う
         /// </summary>

@@ -2,13 +2,19 @@
 using Convenience.Models.Interfaces;
 using Convenience.Models.Properties;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace Convenience.Models.Interfaces {
+    /// <summary>
+    /// DB接続用インターフェース（c#コンソールデバッグ用）
+    /// </summary>
     public interface IDbContext {
         private const string ConfigrationFileName = "appsettings.json"; 
         private const string KeyWordInAppConfig = "ConnectionStrings:ConvenienceContext";
 
+        /// <summary>
+        /// PostgreSQL DBオープン
+        /// </summary>
+        /// <returns></returns>
         protected static ConvenienceContext DbOpen() {
             //DBコンテクスト用接続子読み込み
             IConfiguration configuration = new ConfigurationBuilder()
@@ -19,6 +25,7 @@ namespace Convenience.Models.Interfaces {
             //DBコンテクスト作成
             var contextOptions = new DbContextOptionsBuilder<ConvenienceContext>()
                 .UseNpgsql(configuration[KeyWordInAppConfig])
+                .LogTo(Console.WriteLine, LogLevel.Information)
                 .Options;
             return new ConvenienceContext(contextOptions);
         }

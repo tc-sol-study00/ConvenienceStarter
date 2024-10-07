@@ -4,7 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Convenience.Models.DataModels {
-
+    /// <summary>
+    /// 仕入マスタDTO
+    /// </summary>
+    /// <Remarks>
+    /// 主キー：注文コード、仕入日付、仕入SEQ、仕入先コード、仕入商品コード
+    /// </Remarks>
     [Table("shiire_master")]
     [PrimaryKey(nameof(ShiireSakiId), nameof(ShiirePrdId), nameof(ShohinId))]
     public class ShiireMaster {
@@ -59,8 +64,8 @@ namespace Convenience.Models.DataModels {
 
         public virtual ICollection<ChumonJissekiMeisai>? ChumonJissekiMeisaiis { get; set; }
 
-        public virtual SokoZaiko? SokoZaikos { get; set; }
+        public virtual SokoZaiko? SokoZaiko { get; set; }
 
-        public virtual ICollection<TentoHaraidashiJisseki>? TentoHaraidashiJissekis { get; set; }
+        public virtual IList<TentoHaraidashiJisseki>? TentoHaraidashiJissekis { get; set; }
     }
 }
