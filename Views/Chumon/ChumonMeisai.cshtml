@@ -6,7 +6,7 @@
 <div id="content" style="display:none">
     <div class="container">
         <div class="form-group">
-            <form asp-action="ChumonMeisai">
+            <form asp-action="ChumonMeisai" id="form1">
                 @Html.AntiForgeryToken()
                 <input type="hidden" name="id" value="1" />
                 <div id="accordion">
@@ -113,8 +113,12 @@
     }
     <script src="~/js/sites.js"></script>
     <script>
-        AccordionHandller();
-        RendaSolution();
+        $(document).ready(function () {
+            AccordionHandller();
+            RendaSolution();
+            FirstFocus('@ViewBag.FocusPosition');
+            ResetForm("form1");
+        });
     </script>
 
 }

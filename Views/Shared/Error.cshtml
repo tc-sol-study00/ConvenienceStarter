@@ -1,0 +1,120 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <title>データ表</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 4px;
+            text-align: left;
+            font-size: 18px; /* Increase the font size */
+        }
+
+        th {
+            background-color: #d3d3d3; /* Set background color to gray */
+            border-bottom: 0px solid black; /* Add a bottom border to the header cells */
+        }
+    </style>
+</head>
+
+<h1 class="text-danger">
+
+    @if (Model.StatusCode != null && Model.StatusCode != 1){
+        @:Error. @Model.StatusCode
+    }
+    else {
+        @:Internal Error
+    }
+</h1>
+<!--h2 class="text-danger">An error occurred while processing your request.</--h2 -->
+<table>
+    <tr>
+        <strong>
+        <th>Item</th>
+        <th>Value</th>
+        </strong>
+    </tr>
+    <p></p>
+
+    @if (Model.EventAt != null) {
+        <td><strong>EventAt</strong></td>
+        <td><strong>@Model.EventAt?.ToString("yyyy-MM-dd HH:mm:ss")</strong></td>
+    }
+
+    @if (Model.ShowRequestId) {
+        <tr>
+            <td><strong>Request ID</strong></td>
+            <td><strong>@Model.RequestId</strong></td>
+        </tr>
+    }
+    @if (Model.ExceptionHandlerPathFeature != null) {
+        @if (Model.ExceptionHandlerPathFeature.Path != null) {
+            <tr>
+                <td><strong>Path</strong></td>
+                <td><strong>@Model.ExceptionHandlerPathFeature.Path</strong></td>
+            </tr>
+        }
+        @if (Model.ExceptionHandlerPathFeature.Endpoint != null) {
+            <tr>
+                <td><strong>Endpoint</strong></td>
+                <td><strong>@Model.ExceptionHandlerPathFeature.Endpoint</strong></td>
+            </tr>
+        }
+        @if (Model.ExceptionHandlerPathFeature.Error != null) {
+            <tr>
+                <td><strong>ErrorMassage</strong></td>
+                <td><strong>@Model.ExceptionHandlerPathFeature.Error.Message</strong></td>
+            </tr>
+        }
+    }
+    @if (Model.StatusCodeReExecuteFeature != null) {
+        @if (Model.StatusCodeReExecuteFeature.Endpoint != null) {
+            <tr>
+                <td><strong>Endpoint</strong></td>
+                <td><strong>@Model.StatusCodeReExecuteFeature.Endpoint</strong></td>
+            </tr>
+        }
+        @if (Model.StatusCodeReExecuteFeature.OriginalPath != null) {
+            <tr>
+                <td><strong>OriginalPath</strong></td>
+                <td><strong>@Model.StatusCodeReExecuteFeature.OriginalPath</strong></td>
+            </tr>
+        }
+        @if (Model.StatusCodeReExecuteFeature.OriginalPathBase != null) {
+            <tr>
+                <td><strong>OriginalPathBase</strong></td>
+                <td><strong>@Model.StatusCodeReExecuteFeature.OriginalPathBase</strong></td>
+            </tr>
+        }
+        @if (Model.StatusCodeReExecuteFeature.OriginalQueryString != null) {
+            <tr>
+                <td><strong>OriginalQueryString</strong></td>
+                <td><strong>@Model.StatusCodeReExecuteFeature.OriginalQueryString</strong></td>
+            </tr>
+        }
+    }
+</table>
+<p></p>
+
+
+<!--
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
+    It can result in displaying sensitive information from exceptions to end users.
+    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
+    and restarting the app.
+</p>
+-->
